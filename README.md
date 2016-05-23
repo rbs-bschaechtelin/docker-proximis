@@ -5,9 +5,8 @@ This repository allows the creation of a Docker environment that meets
 ## Architecture
 Here are the environment containers:
 
-* `application`: This is the Proximis application code container,
-* `nginx`: This is the Nginx server container (in which the application volume is mounted),
-* `php`: This is the PHP-FPM container (in which the application volume is mounted too),
+* `nginx`: This is the Nginx server container (in which the shared volume is mounted),
+* `php`: This is the PHP-FPM container (in which the shared volume is mounted too),
 * `mysql`: This is the MariaDB server container,
 * `elasticsearch`: This is the Elasticsearch container.
 
@@ -15,7 +14,6 @@ Here are the environment containers:
 $ docker-compose ps
          Name                       Command               State                       Ports
 ----------------------------------------------------------------------------------------------------------------
-proximis_application_1     /bin/bash                        Up
 proximis_elasticsearch_1   /docker-entrypoint.sh elas ...   Up      0.0.0.0:9200->9200/tcp, 0.0.0.0:9300->9300/tcp
 proximis_mysql_1           /docker-entrypoint.sh mysqld     Up      0.0.0.0:3306->3306/tcp
 proximis_nginx_1           nginx -g daemon off;             Up      443/tcp, 0.0.0.0:80->80/tcp
